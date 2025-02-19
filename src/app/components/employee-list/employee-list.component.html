@@ -1,0 +1,34 @@
+<div class="container">
+  <h3>Employee List</h3>
+<button (click)="router.navigate(['/add-employee'])">Add New Employee</button>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Employee ID</th>
+      <th>Name</th>
+      <th>Company</th>
+      <th>Designation</th>
+      <th>Gender</th>
+      <th>Phone Number</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees">
+      <td>{{ emp.id }}</td>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.company }}</td>
+      <td>{{ emp.designation }}</td>
+      <td>{{ emp.gender }}</td>
+      <td>{{ emp.phone }}</td>
+      <td>
+        <button (click)="editEmployee(emp)">Edit</button>
+        <button (click)="deleteEmployee(emp.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
+

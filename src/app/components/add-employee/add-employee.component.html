@@ -1,0 +1,31 @@
+<div class="container" >
+  <h2>Add Employee</h2>
+
+  <form (submit)="addOrUpdateEmployee(); $event.preventDefault()">
+    <label for="id">Employee ID:</label>
+    <input type="text" id="id" [(ngModel)]="employee.id" name="id" placeholder="emp001" required pattern="emp[0-9]{3}" />
+  
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="employee.name" name="name" placeholder="Enter Name" required />
+  
+    <label for="company">Company Name:</label>
+    <input type="text" id="company" [(ngModel)]="employee.company" name="company" required />
+  
+    <label for="designation">Designation:</label>
+    <input type="text" id="designation" [(ngModel)]="employee.designation" name="designation" required />
+  
+    <label for="gender">Gender:</label>
+    <select id="gender" [(ngModel)]="employee.gender" name="gender" required>
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+  
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" [(ngModel)]="employee.phone" name="phone" pattern="[0-9]{10}" required />
+  
+    <button type="submit">Save Employee</button>
+  </form>
+  
+</div>
