@@ -1,0 +1,14 @@
+ul{
+  list-style-type: number;
+
+  
+}
+ul li{
+  font-size: 18px;
+  /* border: 1px solid #e45d5d; */
+  margin-bottom: 15px;
+  padding: 15px;
+}
+.btn{
+  margin-top: 10px;
+}

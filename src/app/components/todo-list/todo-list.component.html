@@ -1,1 +1,16 @@
-<p>todo-list works!</p>
+<div class="container">
+  <h2>To-Do List</h2>
+
+  <!-- ✅ Add New Task Button -->
+  <button (click)="addNewTask()">Add New Task</button>
+
+  <ul>
+    <li *ngFor="let task of tasks">
+      <strong>{{ task.name }}</strong> - Planned Date: {{ task.plannedDate }}
+     <p class="btn"> <button (click)="editTask(task)">Edit</button>
+      <button (click)="deleteTask(task.id)">Delete</button> </p>
+    </li>
+  </ul>
+
+  <p *ngIf="tasks.length === 0">No tasks found. Add a new task!</p>
+</div>
