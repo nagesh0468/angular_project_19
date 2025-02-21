@@ -30,7 +30,7 @@ export class TodoListComponent {
   }
 
   addNewTask() {
-    this.router.navigate(['/add-task']); // ✅ Now this method exists
+    this.router.navigate(['/add-task']); 
   }
 
   editTask(task: any) {

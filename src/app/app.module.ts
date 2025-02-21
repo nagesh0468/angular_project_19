@@ -6,11 +6,16 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { AddTaskComponent } from './components/add-task/add-task.component'; 
-import {LoginComponent} from './components/login/login.component';
-import {RegisterComponent} from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
+
+// ✅ Correct Firebase imports
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 const routes: Routes = [
   { path: '', redirectTo: '/employees', pathMatch: 'full' },
@@ -19,7 +24,7 @@ const routes: Routes = [
   { path: 'todo-list', component: TodoListComponent },
   { path: 'add-task', component: AddTaskComponent },
   { path: 'login', component: LoginComponent },
-  { path:'register', component: RegisterComponent } 
+  { path: 'register', component: RegisterComponent } 
 ];
 
 @NgModule({
@@ -28,13 +33,17 @@ const routes: Routes = [
     AddEmployeeComponent,
     EmployeeListComponent,
     TodoListComponent,
-    AddTaskComponent 
+    AddTaskComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), 
+    provideAuth(() => getAuth()),  
   ],
   providers: [],
   bootstrap: [AppComponent]

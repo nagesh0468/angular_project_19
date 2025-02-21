@@ -1,6 +1,19 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes';
+import { provideHttpClient } from '@angular/common/http';
+import { initializeApp } from 'firebase/app'; // ✅ Initialize Firebase
+import { environment } from './environments/environment';
+import { AuthService } from './app/services/auth.service';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+// ✅ Initialize Firebase before using any services
+initializeApp(environment.firebaseConfig);
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(),
+    AuthService // ✅ Provide AuthService globally
+  ]
+}).catch(err => console.error(err));
