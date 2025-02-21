@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, User } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, User } from '@angular/fire/auth';  
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private auth = inject(Auth); // ✅ Properly inject Auth
+  private auth = inject(Auth); 
   user: User | null = null;
 
   constructor(private router: Router) {
-    this.auth.onAuthStateChanged((user) => {
+    this.auth.onAuthStateChanged((user) => {  
       this.user = user;
     });
   }
